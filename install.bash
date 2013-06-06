@@ -12,7 +12,7 @@ _load_bash() {
         local filename="$(basename ${file})"
         local dest="${CURRENT_DIR}/bash/${filename}"
         if [ ! -e "${HOME}/.${filename}" ]; then
-            cp "${dest}" "${HOME}/.${filename}"
+            ln -s "${dest}" "${HOME}/.${filename}"
         else
             echo "File .${filename} exists. Skipping..."
         fi
