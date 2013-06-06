@@ -1,0 +1,22 @@
+if [ -f ~/.bash_paths ]; then
+    source ~/.bash_paths
+fi
+
+if [ -f ~/.bash_colors ]; then
+    source ~/.bash_colors
+fi
+
+if [ -f ~/.bash_aliases ]; then
+    source ~/.bash_aliases
+fi
+
+if [ -f /usr/local/etc/bash_completion ]; then
+    source /usr/local/etc/bash_completion
+fi
+
+## RVM ##
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+rvm use 2.0.0 --default
+
+## Add RVM and Git branch to PS1 ##
+PS1='[\u@\h \w \e[33m$(~/.rvm/bin/rvm-prompt i v p g)$(__git_ps1 " (%s)")\e[0m]\$ '
