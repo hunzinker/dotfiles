@@ -9,6 +9,7 @@ alias bi='bundle install'
 alias bu='bundle update'
 alias bl='bundle list'
 alias bp='bundle package'
+alias bo='bundle open'
 
 alias top='top -o cpu'
 alias nerd='vim +NERDTree'
