@@ -1,7 +1,7 @@
 #!/bin/sh
 #
 # Remove sensitive information from a git repo.
-t
+
 usage() {
 cat <<-USAGE
 
