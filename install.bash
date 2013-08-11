@@ -99,11 +99,31 @@ _osx_settings() {
     fi
 }
 
+_load_bin() {
+    while true; do
+        read -p "Would you like to install bin scripts? [Y/N]" RESP
+        case $RESP in
+            [yY])
+                mkdir -p $HOME/bin
+                cp -i $CURRENT_DIR/bin/* $HOME/bin
+                break
+                ;;
+            [nN])
+                break
+                ;;
+            *)
+                echo "Please enter y or n."
+                ;;
+        esac
+    done
+}
+
 install() {
     _load_bash
     _load_extras
     _load_gitconfig
     _osx_settings
+    _load_bin
 }
 
 install
