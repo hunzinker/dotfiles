@@ -77,10 +77,33 @@ _load_gitconfig() {
     done
 }
 
+_osx_settings() {
+    local name=$(uname)
+
+    if [[ $name == "Darwin" ]]; then
+        while true; do
+            read -p "Would you like to install OS X Settings? [Y/N]" RESP
+            case $RESP in
+                [yY])
+                    $($CURRENT_DIR/osx/set-defaults.sh)
+                    break
+                    ;;
+                [nN])
+                    break
+                    ;;
+                *)
+                    echo "Please enter y or n."
+                    ;;
+            esac
+        done
+    fi
+}
+
 install() {
     _load_bash
     _load_extras
     _load_gitconfig
+    _osx_settings
 }
 
 install
