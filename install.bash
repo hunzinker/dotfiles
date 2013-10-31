@@ -20,7 +20,7 @@ _load_bash() {
 }
 
 _load_extras() {
-    declare -a extras=( 'dircolors' 'gemrc' )
+    declare -a extras=( 'dircolors' 'gemrc' 'gitignore_global' )
     for e in ${extras[@]}; do
         local dest="${CURRENT_DIR}/${e}"
         while true; do
