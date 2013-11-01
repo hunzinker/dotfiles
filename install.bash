@@ -118,12 +118,19 @@ _load_bin() {
     done
 }
 
+_global_gitignore() {
+    echo "Adding global gitignore to your cross-repository configuration."
+    $(git config --global core.excludesfile ~/.gitignore_global)
+}
+
 install() {
     _load_bash
     _load_extras
     _load_gitconfig
     _osx_settings
     _load_bin
+    _global_gitignore
+    echo "Done!"
 }
 
 install
