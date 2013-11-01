@@ -24,6 +24,7 @@ The following files will be installed:
 ~/.gemrc            # optional
 ~/.gitconfig        # optional
 ~/.gitignore_global # optional
+~/.inputrc          # optional
 ```
 
 Execute `osx/set-defaults.sh` to modify OS X settings.
