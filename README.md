@@ -20,9 +20,10 @@ The following files will be installed:
 ~/.bash_aliases
 ~/.bash_paths
 ~/.bashrc
-~/.dircolors    # optional
-~/.gemrc        # optional
-~/.gitconfig    # optional
+~/.dircolors        # optional
+~/.gemrc            # optional
+~/.gitconfig        # optional
+~/.gitignore_global # optional
 ```
 
 Execute `osx/set-defaults.sh` to modify OS X settings.
