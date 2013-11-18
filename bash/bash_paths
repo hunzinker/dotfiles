@@ -1,6 +1,8 @@
 export EDITOR=vim
 
-PYTHON=/usr/local/Cellar/python/2.7.4/bin
+export ANDROID_HOME=/usr/local/opt/android-sdk
+
+PYTHON=/usr/local/Cellar/python/2.7.6/bin
 HEROKU=/usr/local/heroku/bin
 RVM=$HOME/.rvm/bin
 BIN=$HOME/bin
