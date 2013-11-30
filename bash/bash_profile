@@ -33,7 +33,7 @@ BRed="\[\033[1;31m\]"
 BPurple="\[\033[1;35m\]"
 
 ## Shell Prompt ##
-function __prompt_command() {
+__prompt_command() {
     EXIT="$?"
     PS1=""
 
@@ -84,7 +84,7 @@ PROMPT_COMMAND=__prompt_command
 
 
 ## VPN Connect ##
-function vpn-connect {
+vpn-connect() {
 /usr/bin/env osascript <<-EOF
 tell application "System Events"
         tell current location of network preferences
@@ -99,7 +99,7 @@ EOF
 }
 
 ## VPN Disconnect ##
-function vpn-disconnect {
+vpn-disconnect() {
 /usr/bin/env osascript <<-EOF
 tell application "System Events"
         tell current location of network preferences
@@ -108,4 +108,8 @@ tell application "System Events"
         end tell
 end tell
 EOF
+}
+
+bru() {
+    brew update && brew upgrade && rvm get stable
 }
