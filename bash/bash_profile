@@ -45,7 +45,8 @@ __prompt_command() {
 
     # If logged in via ssh shows the ip of the client
     if [ -n "$SSH_CLIENT" ]; then
-        PS1+="\[$Yellow\]("${SSH_CLIENT%% *}")\[$Color_Off\]"
+        IFS=" " read -ra SERVER_IP <<< ${SSH_CONNECTION}
+        PS1+="\[$Yellow\]("${SERVER_IP[2]}")\[$Color_Off\]"
     fi
 
     PS1+="\[$BGreen\]\u\[$Color_Off\]@\[$BGreen\]\h\[$Color_Off\]:\[$BPurple\]\w\[$Color_Off\] "
