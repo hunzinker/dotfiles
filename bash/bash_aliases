@@ -1,6 +1,7 @@
 ## Aliases ##
 alias ls="ls $LS_OPTIONS"
 alias ll='ls -alF'
+alias psa='ps auxr'
 
 # Bundler Commands
 alias b='bundle'
