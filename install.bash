@@ -29,6 +29,9 @@ _load_extras() {
                 [yY])
                     if [ ! -e "${HOME}/.${e}" ]; then
                         cp "$dest" "${HOME}/.${e}"
+                        if [ ${e} == "gitignore_global" ]; then
+                            _global_gitignore
+                        fi
                     else
                         echo "File .${e} exists. Skipping..."
                     fi
@@ -123,13 +126,39 @@ _global_gitignore() {
     $(git config --global core.excludesfile ~/.gitignore_global)
 }
 
+_load_tmux() {
+    while true; do
+        read -p "Would you like to install tmux.conf? [Y/N]" RESP
+        case $RESP in
+            [yY])
+                for file in $(ls "${CURRENT_DIR}/tmux/"); do
+                    local filename="$(basename ${file})"
+                    local dest="${CURRENT_DIR}/tmux/${filename}"
+                    if [ ! -e "${HOME}/.${filename}" ]; then
+                        ln -s "${dest}" "${HOME}/.${filename}"
+                    else
+                        echo "File .${filename} exists. Skipping..."
+                    fi
+                done
+                break
+                ;;
+            [nN])
+                break
+                ;;
+            *)
+                echo "Please enter y or n."
+                ;;
+        esac
+    done
+}
+
 install() {
     _load_bash
     _load_extras
     _load_gitconfig
     _osx_settings
     _load_bin
-    _global_gitignore
+    _load_tmux
     echo "Done!"
 }
 
