@@ -46,7 +46,7 @@ __prompt_command() {
         PS1+="\[$Yellow\]("${SERVER_IP[2]}")\[$Color_Off\]"
     fi
 
-    PS1+="\[$BGreen\]\u\[$Color_Off\]@\[$BGreen\]\h\[$Color_Off\]:\[$BPurple\]\w\[$Color_Off\] "
+    PS1+="\[$BPurple\]\w\[$Color_Off\] "
 
     # Add rbenv to prompt
     PS1+="\[$Green\]$(rbenv version | sed -e 's/ .*//')\[$Color_Off\] "
