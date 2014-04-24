@@ -128,7 +128,7 @@ _global_gitignore() {
 
 _load_tmux() {
     while true; do
-        read -p "Would you like to install tmux.conf? [Y/N]" RESP
+        read -p "Would you like to install tmux conf? [Y/N]" RESP
         case $RESP in
             [yY])
                 for file in $(ls "${CURRENT_DIR}/tmux/"); do
