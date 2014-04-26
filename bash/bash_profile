@@ -113,3 +113,7 @@ EOF
 bru() {
     brew update && brew upgrade
 }
+
+ipaddress() {
+    echo $(curl -s ipecho.net/plain)
+}
