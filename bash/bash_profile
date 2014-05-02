@@ -47,10 +47,10 @@ __prompt_command() {
     # If logged in via ssh shows the ip of the server
     if [ -n "$SSH_CLIENT" ]; then
         IFS=" " read -ra SERVER_IP <<< ${SSH_CONNECTION}
-        PS1+="\[$Yellow\]("${SERVER_IP[2]}")\[$Color_Off\]"
+        PS1+="\[$Yellow\]("${SERVER_IP[2]}")\[$Color_Off\] "
     fi
 
-    PS1+="\[$BPurple\]\w\[$Color_Off\] "
+    PS1+="\[$BPurple\]\W\[$Color_Off\] "
 
     # Add rbenv to prompt
     PS1+="\[$Green\]$(rbenv version | sed -e 's/ .*//')\[$Color_Off\] "
