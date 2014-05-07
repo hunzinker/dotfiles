@@ -152,6 +152,32 @@ _load_tmux() {
     done
 }
 
+_load_ack() {
+    while true; do
+        read -p "Would you like to install ackrc? [Y/N]" RESP
+        case $RESP in
+            [yY])
+                for file in $(ls "${CURRENT_DIR}/ack/"); do
+                    local filename="$(basename ${file})"
+                    local dest="${CURRENT_DIR}/ack/${filename}"
+                    if [ ! -e "${HOME}/.${filename}" ]; then
+                        ln -s "${dest}" "${HOME}/.${filename}"
+                    else
+                        echo "File .${filename} exists. Skipping..."
+                    fi
+                done
+                break
+                ;;
+            [nN])
+                break
+                ;;
+            *)
+                echo "Please enter y or n."
+                ;;
+        esac
+    done
+}
+
 install() {
     _load_bash
     _load_extras
@@ -159,6 +185,7 @@ install() {
     _osx_settings
     _load_bin
     _load_tmux
+    _load_ack
     echo "Done!"
 }
 

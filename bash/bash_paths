@@ -6,7 +6,6 @@ BIN=$HOME/bin
 COREUTILS=/usr/local/opt/coreutils/libexec/gnubin
 
 export ANDROID_HOME=/usr/local/opt/android-sdk
-export ACK_OPTIONS="--ignore-dir=.bundle --ignore-dir=log"
 export VERSIONER_PYTHON_VERSION=2.7
 export RBENV_ROOT=/usr/local/var/rbenv
 export JRUBY_OPTS=-J-Xmx4g

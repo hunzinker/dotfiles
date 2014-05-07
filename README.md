@@ -28,6 +28,7 @@ The following files will be installed:
 ~/.gitignore_global # optional
 ~/.inputrc          # optional
 ~/.tmux.conf        # optional
+~/.ackrc            # optional
 ```
 
 Execute `osx/set-defaults.sh` to modify OS X settings.
