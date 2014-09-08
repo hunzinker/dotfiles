@@ -3,7 +3,7 @@
     email = %EMAIL%
 [core]
     autocrlf = input
-    excludesfile = /Users/kennethseal/.gitignore_global
+    excludesfile = $HOME/.gitignore_global
 [push]
     default = current
 [color]
