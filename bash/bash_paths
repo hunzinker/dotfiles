@@ -13,6 +13,7 @@ export JRUBY_OPTS=-J-Xmx4g
 export PATH=/usr/local/bin:$COREUTILS:$PYTHON:$PATH:$HEROKU:$BIN
 
 
+MAN_GNUSED=/usr/local/opt/gnu-sed/libexec/gnuman
 MAN_COREUTILS=/usr/local/opt/coreutils/libexec/gnuman
 
-export MANPATH=$MAN_COREUTILS:$MANPATH
+export MANPATH=$MAN_COREUTILS:$MAN_GNUSED:$MANPATH
