@@ -106,3 +106,9 @@ bru() {
 ipaddress() {
     echo $(curl -s ipecho.net/plain)
 }
+
+flushcache() {
+    sudo discoveryutil mdnsflushcache && \
+        sudo discoveryutil udnsflushcaches && \
+        say flushed
+}
