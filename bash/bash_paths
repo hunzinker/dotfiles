@@ -1,17 +1,15 @@
 export EDITOR=vim
 
-PYTHON=/usr/local/Cellar/python/2.7.8/bin
 HEROKU=/usr/local/heroku/bin
 BIN=$HOME/bin
 COREUTILS=/usr/local/opt/coreutils/libexec/gnubin
 
 export ANDROID_HOME=/usr/local/opt/android-sdk
-export VERSIONER_PYTHON_VERSION=2.7.8
 export RBENV_ROOT=/usr/local/var/rbenv
 export JRUBY_OPTS=-J-Xmx4g
 export JAVA_HOME=$(/usr/libexec/java_home)
 
-export PATH=/usr/local/bin:$COREUTILS:$PYTHON:$PATH:$HEROKU:$BIN
+export PATH=/usr/local/bin:$COREUTILS:$PATH:$HEROKU:$BIN
 
 
 MAN_GNUSED=/usr/local/opt/gnu-sed/libexec/gnuman
