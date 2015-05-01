@@ -12,6 +12,10 @@ alias bl='bundle list'
 alias bp='bundle package'
 alias bo='bundle open'
 
+# Docker
+alias dm='docker-machine'
+alias dc='docker-compose'
+
 alias top='top -o cpu'
 alias nerd='vim +NERDTree'
 alias mnerd='mvim +NERDTree'
