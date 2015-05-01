@@ -113,7 +113,7 @@ vpn_disconnect() {
 }
 
 bru() {
-    brew update && brew upgrade && brew cleanup
+    brew update && brew upgrade --all && brew cleanup
 }
 
 ipaddress() {
@@ -123,5 +123,5 @@ ipaddress() {
 flushcache() {
     sudo discoveryutil mdnsflushcache && \
         sudo discoveryutil udnsflushcaches && \
-        say flushed
+        say "cache flushed all around me. cream. get the money."
 }
