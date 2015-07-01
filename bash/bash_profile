@@ -19,7 +19,7 @@ if [ -f $(brew --prefix)/etc/bash_completion ]; then
 fi
 
 ## Docker Machine ENV ##
-eval "$(dm env)"
+eval "$(dm env -u)"
 
 ## RBENV ##
 eval "$(rbenv init -)"
