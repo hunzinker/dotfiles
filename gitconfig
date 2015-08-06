@@ -30,7 +30,7 @@
     br = branch
     co = checkout
     cp = cherry-pick
-    copr = "!f() { git fetch -fu origin refs/pull/$1/head:pr-$1; \
+    copr = "!f() { git fetch -fu ${2:-origin} refs/pull/$1/head:pr-$1; \
         git co pr-$1; } ; f"
     prunepr = "!git for-each-ref refs/heads/pr-* --format='%(refname:short)' \
         | while read ref ; do git branch -D $ref ; done"
