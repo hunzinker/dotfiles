@@ -8,8 +8,9 @@ export ANDROID_HOME=/usr/local/opt/android-sdk
 export RBENV_ROOT=/usr/local/var/rbenv
 export JRUBY_OPTS=-J-Xmx4g
 export JAVA_HOME=$(/usr/libexec/java_home)
+export NVM_DIR=~/.nvm
 
-export PATH=/usr/local/bin:$COREUTILS:$PATH:$HEROKU:$BIN
+export PATH=/usr/local/bin:/usr/local/sbin:$COREUTILS:$PATH:$HEROKU:$BIN
 
 
 MAN_GNUSED=/usr/local/opt/gnu-sed/libexec/gnuman
