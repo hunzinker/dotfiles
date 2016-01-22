@@ -2,8 +2,9 @@
     name = %NAME%
     email = %EMAIL%
 [core]
+    editor = vim
     autocrlf = input
-    excludesfile = $HOME/.gitignore_global
+    excludesfile = ~/.gitignore_global
 [push]
     default = current
 [color]
@@ -36,3 +37,5 @@
         | while read ref ; do git branch -D $ref ; done"
 [pull]
     rebase = true
+[rerere]
+    enabled = true
