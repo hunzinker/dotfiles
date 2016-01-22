@@ -91,6 +91,12 @@ _load_gitconfig() {
     done
 }
 
+_global_gitignore() {
+    echo "Adding global gitignore to your cross-repository configuration."
+    $(git config --global core.excludesfile ~/.gitignore_global)
+}
+
+
 _osx_settings() {
     local name=$(uname)
 
@@ -130,11 +136,6 @@ _load_bin() {
                 ;;
         esac
     done
-}
-
-_global_gitignore() {
-    echo "Adding global gitignore to your cross-repository configuration."
-    $(git config --global core.excludesfile ~/.gitignore_global)
 }
 
 _load_tmux() {
@@ -194,6 +195,7 @@ install() {
     _load_bash
     _load_extras
     _load_gitconfig
+    _global_gitignore
     _osx_settings
     _load_bin
     _load_tmux
