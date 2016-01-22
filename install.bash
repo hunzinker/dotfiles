@@ -7,6 +7,17 @@ test -w $HOME/.bash_profile &&
 
 CURRENT_DIR="$(cd "$(dirname $0)" && pwd)"
 
+_check_binaries() {
+    local binaries=( brew rbenv tmux docker-machine )
+    for b in ${binaries[@]}; do
+        hash "$b" > /dev/null 2>&1
+        if [ $? -gt 0 ]; then
+            echo "Missing binary: ${b}  please install to continue..."
+            exit 1
+        fi
+    done
+}
+
 _load_bash() {
     for file in $(ls "${CURRENT_DIR}/bash/"); do
         local filename="$(basename ${file})"
@@ -179,6 +190,7 @@ _load_ack() {
 }
 
 install() {
+    _check_binaries
     _load_bash
     _load_extras
     _load_gitconfig

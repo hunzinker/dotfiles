@@ -8,6 +8,10 @@ Assumes the following are installed and in your `PATH`.
   - brew [http://mxcl.github.io/homebrew/](http://mxcl.github.io/homebrew/)
   - rbenv [https://github.com/sstephenson/rbenv](https://github.com/sstephenson/rbenv)
   - coreutils [http://www.gnu.org/software/coreutils](http://www.gnu.org/software/coreutils)
+  - tmux [https://github.com/tmux/tmux.git](https://github.com/tmux/tmux.git)
+  - docker-machine
+    [https://github.com/docker/machine](https://github.com/docker/machine)
+  - nvm [https://github.com/creationix/nvm.git](https://github.com/creationix/nvm.git)
 
 1. clone this repo `git clone git://github.com/hunzinker/dotfiles.git` in your home directory. Ex: `~/.dotfiles`
 2. `.install.bash` backs up your existing `~/.bash_profile` to `~/.bash_profile.bak`.
