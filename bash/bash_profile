@@ -24,6 +24,9 @@ eval "$(dm env -u)"
 ## RBENV ##
 eval "$(rbenv init -)"
 
+## NVM ##
+source $(brew --prefix nvm)/nvm.sh
+
 ## PS1 ##
 ## Shell Prompt ##
 __prompt_command() {
@@ -82,34 +85,34 @@ vpn_connect() {
     echo -n "VPN Password: "
     read -s secret
 
-	/usr/bin/env osascript <<-EOF
-	tell application "System Events"
-	        tell current location of network preferences
-	                set VPN to service "${service}"
-	                if exists VPN then connect VPN
-	                repeat while (current configuration of VPN is not connected)
-	                    delay 1
-	                    keystroke "${secret}"
-	                    keystroke return
-	                    delay 7
-	                end repeat
-	        end tell
-	end tell
-	EOF
+    /usr/bin/env osascript <<-EOF
+    tell application "System Events"
+        tell current location of network preferences
+            set VPN to service "${service}"
+            if exists VPN then connect VPN
+                repeat while (current configuration of VPN is not connected)
+                delay 1
+                keystroke "${secret}"
+                keystroke return
+                delay 7
+            end repeat
+        end tell
+    end tell
+    EOF
 
     echo ""
 }
 
 vpn_disconnect() {
     service=$1
-	/usr/bin/env osascript <<-EOF
-	tell application "System Events"
-	        tell current location of network preferences
-	                set VPN to service "${service}"
-	                if exists VPN then disconnect VPN
-	        end tell
-	end tell
-	EOF
+    /usr/bin/env osascript <<-EOF
+    tell application "System Events"
+        tell current location of network preferences
+            set VPN to service "${service}"
+            if exists VPN then disconnect VPN
+        end tell
+    end tell
+EOF
 }
 
 bru() {
