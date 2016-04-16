@@ -17,4 +17,4 @@ alias dm='docker-machine'
 alias dc='docker-compose'
 
 alias top='top -o cpu'
-alias nerd='vim -S +NERDTree'
+alias nerd='vim +NERDTree'
