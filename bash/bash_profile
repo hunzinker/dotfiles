@@ -127,7 +127,6 @@ ipaddress() {
 }
 
 flushcache() {
-    sudo discoveryutil mdnsflushcache && \
-        sudo discoveryutil udnsflushcaches && \
+    sudo killall -HUP mDNSResponder && \
         say "cache flushed all around me. cream. get the money."
 }
