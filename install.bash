@@ -18,6 +18,26 @@ _check_binaries() {
     done
 }
 
+_brew_install_formulas() {
+    while true; do
+        read -p "Would you like to install brew formulas? [Y/N]" RESP
+        case $RESP in
+            [yY])
+                while read line; do
+                    brew install $line
+                done < ${CURRENT_DIR}/brew/formulas
+                break
+                ;;
+            [nN])
+                break
+                ;;
+            *)
+                echo "Please enter y or n."
+                ;;
+        esac
+    done
+}
+
 _load_bash() {
     for file in $(ls "${CURRENT_DIR}/bash/"); do
         local filename="$(basename ${file})"
@@ -192,6 +212,7 @@ _load_ack() {
 
 install() {
     _check_binaries
+    _brew_install_formulas
     _load_bash
     _load_extras
     _load_gitconfig
