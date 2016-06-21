@@ -9,6 +9,7 @@ export RBENV_ROOT=/usr/local/var/rbenv
 export JRUBY_OPTS=-J-Xmx4g
 export JAVA_HOME=$(/usr/libexec/java_home)
 export NVM_DIR=~/.nvm
+export BROWSER=$HOME/bin/vim-browswer
 
 export PATH=/usr/local/bin:/usr/local/sbin:$COREUTILS:$PATH:$HEROKU:$BIN
 
