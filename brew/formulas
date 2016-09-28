@@ -17,6 +17,7 @@ gcc
 git
 gnu-sed --with-default-names
 gnutls
+gpg
 graphviz
 htop-osx
 jq
@@ -31,6 +32,7 @@ postgresql
 python
 rbenv
 readline
+reattach-to-user-namespace
 redis
 ruby-build
 rust
@@ -41,4 +43,3 @@ tmux
 tree
 typesafe-activator
 vim
-gpg
