@@ -1,6 +1,8 @@
 ack
+android-sdk
 apache-spark
 autoconf
+automake
 bash
 bash-completion
 cairo
@@ -27,9 +29,12 @@ nmap
 node
 nvm
 openssl
+perl
 pianobar
+pkg-config
 postgresql
 python
+python3
 rbenv
 readline
 reattach-to-user-namespace
@@ -43,3 +48,4 @@ tmux
 tree
 typesafe-activator
 vim
+watch
