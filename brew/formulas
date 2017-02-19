@@ -44,6 +44,7 @@ rust
 sbt
 scala
 sqlite
+the_silver_searcher
 tmux
 tree
 typesafe-activator
