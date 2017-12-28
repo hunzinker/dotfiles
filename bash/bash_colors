@@ -1,6 +1,6 @@
 ## Colors ##
 if [ $TERM != "dumb" ]; then
-    export GREP_OPTIONS="--color=always"
+    export GREP_OPTIONS="--color=never"
     export LS_OPTIONS="--color=auto"
     source ~/.dircolors
 fi
