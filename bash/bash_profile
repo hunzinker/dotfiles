@@ -30,6 +30,8 @@ source $(brew --prefix nvm)/nvm.sh
 ## Perl ##
 eval $(perl -I$HOME/perl5/lib/perl5 -Mlocal::lib)
 
+HISTCONTROL=ignoreboth
+
 ## PS1 ##
 ## Shell Prompt ##
 __prompt_command() {
@@ -55,7 +57,7 @@ __prompt_command() {
 
     # Check if inside git repo
     local git_status="$(git status -unormal 2>&1)"
-    if ! [[ "$git_status" =~ Not\ a\ git\ repo ]]; then
+    if ! [[ "$git_status" =~ not\ a\ git\ repo ]]; then
         # Parse the porcelain output of git status
         if [[ "$git_status" =~ nothing\ to\ commit ]]; then
             local Color_On=${green}
@@ -129,4 +131,13 @@ ipaddress() {
 flushcache() {
     sudo killall -HUP mDNSResponder && \
         say "cache flushed all around me. cream. get the money."
+}
+
+docker_cleanup() {
+    docker rm \
+        $(docker ps -qa --no-trunc --filter "status=exited" 2> /dev/null) \
+        2> /dev/null
+    docker rmi \
+        $(docker images --filter "dangling=true" -q --no-trunc 2> /dev/null) \
+        2> /dev/null
 }
