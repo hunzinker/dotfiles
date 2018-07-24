@@ -26,6 +26,7 @@ _brew_install_formulas() {
                 while read line; do
                     brew install $line
                 done < ${CURRENT_DIR}/brew/formulas
+                brew cask install docker
                 break
                 ;;
             [nN])

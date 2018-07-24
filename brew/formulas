@@ -10,11 +10,9 @@ cloc
 cmake
 coreutils
 ctags
-docker
-docker-compose
-docker-machine
 erlang
 ffmpeg
+fzf
 gcc
 git
 gnu-sed --with-default-names
@@ -37,7 +35,6 @@ python
 python3
 rbenv
 readline
-reattach-to-user-namespace
 redis
 ruby-build
 rust
