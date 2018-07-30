@@ -8,7 +8,7 @@ test -w $HOME/.bash_profile &&
 CURRENT_DIR="$(cd "$(dirname $0)" && pwd)"
 
 _check_binaries() {
-    local binaries=( brew rbenv tmux docker-machine )
+    local binaries=( brew rbenv tmux )
     for b in ${binaries[@]}; do
         hash "$b" > /dev/null 2>&1
         if [ $? -gt 0 ]; then
@@ -27,6 +27,7 @@ _brew_install_formulas() {
                     brew install $line
                 done < ${CURRENT_DIR}/brew/formulas
                 brew cask install docker
+                brew cask install android-sdk
                 break
                 ;;
             [nN])
