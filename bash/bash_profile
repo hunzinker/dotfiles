@@ -24,6 +24,9 @@ eval "$(dm env -u)"
 ## RBENV ##
 eval "$(rbenv init -)"
 
+## JENV ##
+eval "$(jenv init -)"
+
 ## NVM ##
 source $(brew --prefix nvm)/nvm.sh
 

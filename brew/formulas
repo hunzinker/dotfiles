@@ -20,6 +20,7 @@ gnutls
 gpg
 graphviz
 htop-osx
+jenv
 jq
 multitail
 mysql
