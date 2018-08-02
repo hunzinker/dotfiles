@@ -51,6 +51,7 @@ _load_bash() {
             echo "File .${filename} exists. Skipping..."
         fi
     done
+    touch $CURRENT_DIR/ignored/bash_paths
 }
 
 _load_extras() {

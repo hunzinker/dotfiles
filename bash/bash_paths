@@ -11,6 +11,8 @@ export JAVA_HOME=$(/usr/libexec/java_home)
 export NVM_DIR=~/.nvm
 export BROWSER=$HOME/bin/vim-browser
 
+source $HOME/.dotfiles/ignored/bash_paths
+
 export PATH=/usr/local/bin:/usr/local/sbin:$COREUTILS:$PATH:$HEROKU:$BIN
 
 
