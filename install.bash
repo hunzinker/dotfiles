@@ -224,7 +224,7 @@ install() {
     _load_bin
     _load_tmux
     _load_ack
-    echo "Done!"
+    cat ${CURRENT_DIR}/post_install_notes.txt
 }
 
 install

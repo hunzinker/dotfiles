@@ -1,0 +1,8 @@
+Post Install Notes
+
+Tmux tpm: install tmux plugins `prefix` + I
+
+Bundle gems per project: `cd && bundle config path .bundle`
+
+Done!
+
