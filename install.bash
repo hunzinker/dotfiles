@@ -23,7 +23,8 @@ _brew_install_formulas() {
         read -p "Would you like to install brew formulas? [Y/N]" RESP
         case $RESP in
             [yY])
-                brew cask install java8
+                brew tap homebrew/cask
+                brew cask install java
                 while read line; do
                     brew install $line
                 done < ${CURRENT_DIR}/brew/formulas
