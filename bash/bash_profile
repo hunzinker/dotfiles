@@ -30,9 +30,6 @@ eval "$(jenv init -)"
 ## NVM ##
 source $(brew --prefix nvm)/nvm.sh
 
-## Perl ##
-eval $(perl -I$HOME/perl5/lib/perl5 -Mlocal::lib)
-
 HISTCONTROL=ignoreboth
 
 ## PS1 ##

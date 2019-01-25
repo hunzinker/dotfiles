@@ -15,6 +15,7 @@ fzf
 gcc
 git
 gnu-sed --with-default-names
+gnu-tar --with-default-names
 gnutls
 gpg
 graphviz

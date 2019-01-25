@@ -13,7 +13,7 @@ export BROWSER=$HOME/bin/vim-browser
 
 source $HOME/.dotfiles/ignored/bash_paths
 
-export PATH=/usr/local/bin:/usr/local/sbin:$COREUTILS:$PATH:$HEROKU:$BIN
+export PATH=/usr/local/bin:/usr/local/sbin:$COREUTILS:$PATH:$HEROKU:$BIN:$ANDROID_HOME/platform-tools
 
 
 MAN_GNUSED=/usr/local/opt/gnu-sed/libexec/gnuman
