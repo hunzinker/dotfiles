@@ -53,10 +53,10 @@ __prompt_command() {
     PS1+="${bold_purple}\W "
 
     # Add rbenv to prompt
-    # PS1+="${green}$(rbenv version | sed -e 's/ .*//') "
+    # PS1+="${yellow}$(rbenv version | sed -e 's/ .*//') "
 
     # Add jenv to prompt
-    PS1+="${yellow}java$(jenv version | sed -e 's/ .*//') "
+    PS1+="${yellow}$(jenv version | sed -e 's/ .*//') "
 
     # Check if inside git repo
     local git_status="$(git status -unormal 2>&1)"
