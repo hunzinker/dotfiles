@@ -2,3 +2,7 @@ if [[ "$TERM" != "screen-256color" ]]; then
     tmux -2 attach -t "$USER" || tmux -2 new -s "$USER"
     exit
 fi
+
+if [[ -z "$TMUX"  ]] && [ "$SSH_CONNECTION" != ""  ]; then
+    tmux new-session -A -s ssh_tmux
+fi
