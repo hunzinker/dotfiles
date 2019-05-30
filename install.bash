@@ -25,6 +25,7 @@ _brew_install_formulas() {
             [yY])
                 brew tap homebrew/cask
                 brew cask install java
+                brew cask install alacritty
                 while read line; do
                     brew install $line
                 done < ${CURRENT_DIR}/brew/formulas
@@ -190,6 +191,33 @@ _load_tmux() {
     done
 }
 
+_load_alacritty() {
+    while true; do
+        read -p "Would you like to install alacritty.yml? [Y/N]" RESP
+        case $RESP in
+            [yY])
+                for file in $(ls "${CURRENT_DIR}/alacritty/"); do
+                    local filename="$(basename ${file})"
+                    local dest="${CURRENT_DIR}/alacritty/${filename}"
+                    mkdir -p "${HOME}/.config/alacritty"
+                    if [ ! -e "${HOME}/.config/alacritty/${filename}" ]; then
+                        ln -s "${dest}" "${HOME}/.config/alacritty/${filename}"
+                    else
+                        echo "File ${HOME}/.config/alacritty/${filename} exists. Skipping..."
+                    fi
+                done
+                break
+                ;;
+            [nN])
+                break
+                ;;
+            *)
+                echo "Please enter y or n."
+                ;;
+        esac
+    done
+}
+
 _load_ack() {
     while true; do
         read -p "Would you like to install ackrc? [Y/N]" RESP
@@ -226,6 +254,7 @@ install() {
     _osx_settings
     _load_bin
     _load_tmux
+    _load_alacritty
     _load_ack
     cat ${CURRENT_DIR}/post_install_notes.txt
 }

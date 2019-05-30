@@ -2,7 +2,10 @@ Post Install Notes
 
 Tmux tpm: install tmux plugins `prefix` + I
 
+Ruby Version: `rbenv versions`
+
+Java Version: `jenv versions`
+
 Bundle gems per project: `cd && bundle config path .bundle`
 
 Done!
-
