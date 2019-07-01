@@ -124,7 +124,7 @@ EOF
 }
 
 bru() {
-    brew update && brew upgrade && brew cleanup
+    brew update && brew upgrade && brew cleanup && brew cask upgrade
 }
 
 ipaddress() {
