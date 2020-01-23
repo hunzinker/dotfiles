@@ -13,8 +13,12 @@ alias bp='bundle package'
 alias bo='bundle open'
 
 # Docker
+alias d='docker'
 alias dm='docker-machine'
 alias dc='docker-compose'
+
+# Kubernetes
+alias k='kubectl'
 
 alias top='top -o cpu'
 alias nerd='nvim +NERDTree'
