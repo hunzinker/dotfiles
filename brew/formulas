@@ -1,7 +1,9 @@
 ack
+adoptopenjdk
 apache-spark
 autoconf
 automake
+aws-iam-authenticator
 bash
 bash-completion
 cairo
@@ -22,6 +24,7 @@ graphviz
 htop-osx
 jenv
 jq
+kafkacat
 multitail
 mysql
 nmap
@@ -42,6 +45,8 @@ rust
 sbt
 scala
 sqlite
+telnet
+terraform
 the_silver_searcher
 tmux
 tree
