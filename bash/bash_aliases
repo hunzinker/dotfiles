@@ -21,5 +21,8 @@ alias dc='docker-compose'
 alias k='kubectl'
 
 alias top='top -o cpu'
-alias nerd='nvim +NERDTree'
-alias nnerd='vim +NERDTree'
+
+# vim
+alias nerd='vim +NERDTree -S Session.vim'
+alias nnerd='nvim +NERDTree -S Session.vim'
+alias fvim='vim -o $(fzf)'

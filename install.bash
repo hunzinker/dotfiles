@@ -256,6 +256,7 @@ install() {
     _load_tmux
     _load_alacritty
     _load_ack
+    bash /usr/local/opt/fzf/install
     cat ${CURRENT_DIR}/post_install_notes.txt
 }
 
