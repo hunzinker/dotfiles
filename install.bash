@@ -244,6 +244,26 @@ _load_ack() {
     done
 }
 
+_load_pianobar() {
+    while true; do
+        read -p "Would you like to install pianobar configs? [Y/N]" RESP
+        case $RESP in
+            [yY])
+                mkdir -p $HOME/.config/pianobar
+                cp -ir /usr/local/opt/pianobar/contrib/* $HOME/.config/pianobar
+                cp -ir $CURRENT_DIR/pianobar/* $HOME/.config/pianobar
+                break
+                ;;
+            [nN])
+                break
+                ;;
+            *)
+                echo "Please enter y or n."
+                ;;
+        esac
+    done
+}
+
 install() {
     _check_binaries
     _brew_install_formulas
@@ -256,6 +276,7 @@ install() {
     _load_tmux
     _load_alacritty
     _load_ack
+    _load_pianobar
     bash /usr/local/opt/fzf/install
     cat ${CURRENT_DIR}/post_install_notes.txt
 }
