@@ -1,22 +1,12 @@
-if [ -f ~/.bash_paths ]; then
-    source ~/.bash_paths
-fi
+[ -f ~/.bash_paths ] && source ~/.bash_paths
 
-if [ -f ~/.bash_colors ]; then
-    source ~/.bash_colors
-fi
+[ -f ~/.bash_colors ] && source ~/.bash_colors
 
-if [ -f ~/.bash_aliases ]; then
-    source ~/.bash_aliases
-fi
+[ -f ~/.bash_aliases ] && source ~/.bash_aliases
 
-if [ -f ~/.bash_tmux ]; then
-    source ~/.bash_tmux
-fi
+[ -f ~/.bash_tmux ] && source ~/.bash_tmux
 
-if [ -f $(brew --prefix)/etc/bash_completion ]; then
-    source $(brew --prefix)/etc/bash_completion
-fi
+[ -f $(brew --prefix)/etc/bash_completion ] && source $(brew --prefix)/etc/bash_completion
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
