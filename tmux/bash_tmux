@@ -1,4 +1,4 @@
-if [[ "$TERM" != "screen-256color" ]]; then
+if [[ "$TERM" != "screen-256color" && $- == *i* ]]; then
     tmux -2 attach -t "$USER" || tmux -2 new -s "$USER"
     exit
 fi
