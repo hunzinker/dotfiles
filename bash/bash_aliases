@@ -2,7 +2,6 @@
 alias ls="ls $LS_OPTIONS"
 alias ll='ls -alF'
 alias psa='ps auxr'
-alias python='python3'
 
 # Bundler Commands
 alias b='bundle'
