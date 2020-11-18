@@ -41,7 +41,7 @@ rbenv
 readline
 redis
 ruby-build
-rust
+rustup
 sbt
 scala
 sqlite

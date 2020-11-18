@@ -19,6 +19,9 @@ eval "$(jenv init -)"
 ## NVM ##
 source $(brew --prefix nvm)/nvm.sh
 
+## RUST ##
+source $HOME/.cargo/env
+
 HISTCONTROL=ignoreboth
 
 ## PS1 ##
