@@ -11,10 +11,19 @@
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
 ## RBENV ##
-eval "$(rbenv init -)"
+if command -v rbenv 1>/dev/null 2>&1; then
+    eval "$(rbenv init -)"
+fi
 
 ## JENV ##
-eval "$(jenv init -)"
+if command -v jenv 1>/dev/null 2>&1; then
+    eval "$(jenv init -)"
+fi
+
+## PYENV ##
+if command -v pyenv 1>/dev/null 2>&1; then
+    eval "$(pyenv init -)"
+fi
 
 ## NVM ##
 source $(brew --prefix nvm)/nvm.sh
