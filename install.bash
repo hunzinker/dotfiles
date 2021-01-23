@@ -7,8 +7,42 @@ test -w $HOME/.bash_profile &&
 
 CURRENT_DIR="$(cd "$(dirname $0)" && pwd)"
 
+PM=
+
+_check_os() {
+    local name=$(uname)
+
+    case $name in
+        "Darwin")
+            echo "System: ${name}  "
+            PM="brew"
+            echo "Using brew"
+            ;;
+        "Linux")
+            echo "System: ${name}  "
+            local flavor=$(lsb_release -si)
+
+            case $flavor in
+                "ManjaroLinux")
+                    echo "Package manager: pacman "
+                    PM="pacman"
+                    ;;
+                *)
+                    echo "Error determining Linux flavor "
+                    exit 1
+                    ;;
+            esac
+            ;;
+        *)
+            echo "System not supported: ${name}  "
+            exit 1
+            ;;
+    esac
+
+}
+
 _check_binaries() {
-    local binaries=( brew git rbenv tmux )
+    local binaries=( $PM git tmux )
     for b in ${binaries[@]}; do
         hash "$b" > /dev/null 2>&1
         if [ $? -gt 0 ]; then
@@ -31,6 +65,27 @@ _brew_install_formulas() {
                 done < ${CURRENT_DIR}/brew/formulas
                 brew cask install docker
                 brew cask install android-sdk
+                break
+                ;;
+            [nN])
+                break
+                ;;
+            *)
+                echo "Please enter y or n."
+                ;;
+        esac
+    done
+}
+
+_pacman_install_packages() {
+    while true; do
+        read -p "Would you like to install pacman packages? [Y/N]" RESP
+        case $RESP in
+            [yY])
+                sudo pacman -Sy
+                while read line; do
+                    sudo pacman -S --noconfirm $line
+                done < ${CURRENT_DIR}/pacman/packages
                 break
                 ;;
             [nN])
@@ -265,19 +320,29 @@ _load_pianobar() {
 }
 
 install() {
+    _check_os
     _check_binaries
-    _brew_install_formulas
+    case $PM in
+        "brew")
+            _brew_install_formulas
+            _osx_settings
+            bash /usr/local/opt/fzf/install
+            ;;
+        "pacman")
+            _pacman_install_packages
+            ;;
+        *)
+            ;;
+    esac
     _load_bash
     _load_extras
     _load_gitconfig
     _global_gitignore
-    _osx_settings
     _load_bin
     _load_tmux
     _load_alacritty
     _load_ack
     _load_pianobar
-    bash /usr/local/opt/fzf/install
     cat ${CURRENT_DIR}/post_install_notes.txt
 }
 

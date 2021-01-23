@@ -6,27 +6,29 @@
 
 [ -f ~/.bash_tmux ] && source ~/.bash_tmux
 
-[ -f $(brew --prefix)/etc/bash_completion ] && source $(brew --prefix)/etc/bash_completion
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
+## BREW ##
+if command brew 1>/dev/null 2>&1; then
+    [ -f $(brew --prefix)/etc/bash_completion ] && source $(brew --prefix)/etc/bash_completion
+    source $(brew --prefix nvm)/nvm.sh
+fi
+
 ## RBENV ##
-if command -v rbenv 1>/dev/null 2>&1; then
+if command rbenv 1>/dev/null 2>&1; then
     eval "$(rbenv init -)"
 fi
 
 ## JENV ##
-if command -v jenv 1>/dev/null 2>&1; then
+if command jenv 1>/dev/null 2>&1; then
     eval "$(jenv init -)"
 fi
 
 ## PYENV ##
-if command -v pyenv 1>/dev/null 2>&1; then
+if command pyenv 1>/dev/null 2>&1; then
     eval "$(pyenv init -)"
 fi
-
-## NVM ##
-source $(brew --prefix nvm)/nvm.sh
 
 ## RUST ##
 source $HOME/.cargo/env
@@ -88,8 +90,14 @@ __prompt_command() {
 ## Execute __prompt_command every time PS1 is printed ##
 PROMPT_COMMAND=__prompt_command
 
+[ -f ~/.bashrc ] && source ~/.bashrc
+
 bru() {
     brew update && brew upgrade && brew cleanup && brew upgrade --cask
+}
+
+pac() {
+    sudo pacman -Syu
 }
 
 ipaddress() {
