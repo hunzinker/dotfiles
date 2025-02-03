@@ -1,24 +1,24 @@
-[ -f ~/.bash_paths ] && source ~/.bash_paths
+[[ -r ~/.bash_paths ]] && source ~/.bash_paths
 
-[ -f ~/.bash_colors ] && source ~/.bash_colors
+[[ -r ~/.bash_colors ]] && source ~/.bash_colors
 
-[ -f ~/.bash_aliases ] && source ~/.bash_aliases
+[[ -r ~/.bash_aliases ]] && source ~/.bash_aliases
 
-[ -f ~/.bash_tmux ] && source ~/.bash_tmux
+[[ -r ~/.bash_tmux ]] && source ~/.bash_tmux
 
-[ -f $(brew --prefix)/etc/bash_completion ] && source $(brew --prefix)/etc/bash_completion
+[[ -r "$(brew --prefix)/etc/profile.d/bash_completion.sh" ]] && source "$(brew --prefix)/etc/profile.d/bash_completion.sh"
 
-[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+[[ -r ~/.fzf.bash ]] && source ~/.fzf.bash
 
 ## RBENV ##
-# if command -v rbenv 1>/dev/null 2>&1; then
-#     eval "$(rbenv init -)"
-# fi
+if command -v rbenv 1>/dev/null 2>&1; then
+    eval "$(rbenv init -)"
+fi
 
 ## JENV ##
-# if command -v jenv 1>/dev/null 2>&1; then
-#     eval "$(jenv init -)"
-# fi
+if command -v jenv 1>/dev/null 2>&1; then
+    eval "$(jenv init -)"
+fi
 
 ## PYENV ##
 # if command -v pyenv 1>/dev/null 2>&1; then
