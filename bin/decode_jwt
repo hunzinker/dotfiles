@@ -1,0 +1,9 @@
+#!/bin/bash
+
+if [ -n "${1}" ]; then
+  input="${1}"
+else
+  read -r input
+fi
+
+jq -R 'split(".") | .[1] | @base64d | fromjson' <<< ${input}
