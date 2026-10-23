@@ -31,9 +31,52 @@
     co = checkout
     cp = cherry-pick
     copr = "!f() { git fetch -fu ${2:-origin} refs/pull/$1/head:pr-$1; \
-        git co pr-$1; } ; f"
+      git co pr-$1; } ; f"
     prunepr = "!git for-each-ref refs/heads/pr-* --format='%(refname:short)' \
-        | while read ref ; do git branch -D $ref ; done"
+      | while read ref ; do git branch -D $ref ; done"
+    wt = "!f() { \
+      root=$(git worktree list --porcelain | sed -n '1s/^worktree //p')/.worktrees; \
+      cmd=$1; \
+      shift; \
+      case \"$cmd\" in \
+          add|a) \
+              name=$1; \
+              branch=${2:-$1}; \
+              if [ -z \"$name\" ]; then echo \"❌ Usage: git wt add <name> [branch]\"; return 1; fi; \
+              if git show-ref --verify --quiet \"refs/heads/$branch\"; then \
+                  git worktree add \"$root/$name\" \"$branch\"; \
+              else \
+                  git worktree add \"$root/$name\" -b \"$branch\"; \
+              fi || return 1; \
+              if [ -f \"$root/$name/pyproject.toml\" ]; then (cd \"$root/$name\" && uv sync); fi; \
+              echo \"👉 To jump in: cd $root/$name\"; \
+              ;; \
+          rm|d) \
+              name=$1; \
+              if [ -z \"$name\" ]; then echo \"❌ Usage: git wt rm <name>\"; return 1; fi; \
+              git worktree remove \"$root/$name\"; \
+              ;; \
+          go|g) \
+              name=$1; \
+              if [ -z \"$name\" ] || [ ! -d \"$root/$name\" ]; then \
+                  echo \"❌ Active worktrees:\"; \
+                  ls -1 \"$root\" 2>/dev/null || echo \"  (None)\"; \
+                  return 1; \
+                  fi; \
+              echo \"cd $root/$name\"; \
+              ;; \
+          ls) \
+              git worktree list; \
+              ;; \
+          *) \
+              echo \"🌿 Git Worktree Helper\"; \
+              echo \"git wt add <name> [branch]  - Create worktree\"; \
+              echo \"git wt rm <name>            - Remove worktree\"; \
+              echo \"git wt go <name>            - Show cd command\"; \
+              echo \"git wt ls                   - List all\"; \
+              ;; \
+      esac; \
+    }; f"
 [pull]
     rebase = true
 [rerere]

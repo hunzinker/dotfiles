@@ -26,3 +26,23 @@ alias top='top -o cpu'
 alias nerd='vim +NERDTree -S Session.vim'
 alias nnerd='nvim +NERDTree -S Session.vim'
 alias fvim='vim -o $(fzf)'
+
+# Tab completion for the `git wt` alias; git-completion calls _git_<subcommand> for any `git <subcommand>`.
+_git_wt () {
+	local i sub
+	for ((i = 2; i < cword; i++)); do
+		case "${words[i]}" in add|a|rm|d|go|g|ls) sub=${words[i]}; break ;; esac
+	done
+	if [ -z "$sub" ]; then
+		__gitcomp "add rm go ls"
+		return
+	fi
+	case "$sub,$((cword - i))" in
+	go,1|g,1|rm,1|d,1)
+		__gitcomp_nl "$(__git worktree list --porcelain | sed -n 's|^worktree .*/\.worktrees/||p')"
+		;;
+	add,2|a,2)
+		__gitcomp_nl "$(__git_heads)"
+		;;
+	esac
+}
