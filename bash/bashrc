@@ -2,3 +2,7 @@
 [ -z "$PS1" ] && return
 
 [ -f ~/.bash_profile ] && source ~/.bash_profile
+. "$HOME/.cargo/env"
+eval "$(mise activate bash)"
+
+. "$HOME/.local/bin/env"

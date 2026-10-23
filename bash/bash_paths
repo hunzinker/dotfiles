@@ -1,21 +1,20 @@
 export EDITOR=vim
 
-BIN=$HOME/bin
-COREUTILS=/usr/local/opt/coreutils/libexec/gnubin
+HOMEBREW=$(brew --prefix)
 
-export ANDROID_HOME=/usr/local/opt/android-sdk
-export RBENV_ROOT=/usr/local/var/rbenv
-export JAVA_HOME=$(/usr/libexec/java_home)
-export NVM_DIR=~/.nvm
+BIN=$HOME/bin
+LOCAL_BIN=$HOME/.local/bin
+COREUTILS=$HOMEBREW/opt/coreutils/libexec/gnubin
+
+export RBENV_ROOT=$(brew --prefix)/var/rbenv
 export BROWSER=$HOME/bin/vim-browser
 export RUST=$HOME/.cargo/bin
 
 source $HOME/.dotfiles/ignored/bash_paths
 
-export PATH=/usr/local/bin:/usr/local/sbin:$COREUTILS:$PATH:$BIN:$RUST:$ANDROID_HOME/platform-tools
+export PATH=$HOMEBREW/bin:$HOMEBREW/sbin:$COREUTILS:$PATH:$BIN:$RUST:$LOCAL_BIN
 
-
-MAN_GNUSED=/usr/local/opt/gnu-sed/libexec/gnuman
-MAN_COREUTILS=/usr/local/opt/coreutils/libexec/gnuman
+MAN_GNUSED=$HOMEBREW/opt/gnu-sed/libexec/gnuman
+MAN_COREUTILS=$HOMEBREW/opt/coreutils/libexec/gnuman
 
 export MANPATH=$MAN_COREUTILS:$MAN_GNUSED:$MANPATH

@@ -14,7 +14,7 @@ dateime() {
 }
 
 main() {
-  wan_ip_address
+  # wan_ip_address
   load_average
   dateime
 }

@@ -1,13 +1,14 @@
+# The following lines were added by Docker Desktop to add commands to your PATH.
+export PATH="$PATH:/Users/kenseal/.docker/bin"
+# End of Docker Desktop section.
+
+eval "$(/opt/homebrew/bin/brew shellenv)"
+
 [[ -r ~/.bash_paths ]] && source ~/.bash_paths
-
 [[ -r ~/.bash_colors ]] && source ~/.bash_colors
-
 [[ -r ~/.bash_aliases ]] && source ~/.bash_aliases
-
 [[ -r ~/.bash_tmux ]] && source ~/.bash_tmux
-
-[[ -r "$(brew --prefix)/etc/profile.d/bash_completion.sh" ]] && source "$(brew --prefix)/etc/profile.d/bash_completion.sh"
-
+[[ -r "/opt/homebrew/etc/profile.d/bash_completion.sh" ]] && source "/opt/homebrew/etc/profile.d/bash_completion.sh"
 [[ -r ~/.fzf.bash ]] && source ~/.fzf.bash
 
 ## RBENV ##
@@ -26,7 +27,7 @@ fi
 # fi
 
 ## NVM ##
-source $(brew --prefix nvm)/nvm.sh
+# source $(brew --prefix nvm)/nvm.sh
 
 ## RUST ##
 source $HOME/.cargo/env
@@ -102,3 +103,5 @@ ipaddress() {
 docker_cleanup() {
     docker system prune --volumes
 }
+
+. "$HOME/.local/bin/env"

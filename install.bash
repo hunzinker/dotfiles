@@ -8,7 +8,8 @@ test -w $HOME/.bash_profile &&
 CURRENT_DIR="$(cd "$(dirname $0)" && pwd)"
 
 _check_binaries() {
-    local binaries=( brew git rbenv tmux )
+    # local binaries=( brew git rbenv tmux )
+    local binaries=( brew git tmux )
     for b in ${binaries[@]}; do
         hash "$b" > /dev/null 2>&1
         if [ $? -gt 0 ]; then
